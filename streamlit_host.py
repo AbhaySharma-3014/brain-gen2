@@ -68,7 +68,7 @@ if uploaded_file is not None:
     # crop new image out of the original image using the four extreme points (left, right, top, bottom)
     new_image = image[extTop[1]:extBot[1], extLeft[0]:extRight[0]]
 
-    image224 = cv2.resize(new_image, dsize=(224, 224), interpolation=cv2.INTER_CUBIC)
+    image224 = image.reshape((0, 224, 224, 3))
     image240 = cv2.resize(new_image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
     image = cv2.resize(new_image, dsize=(64, 64), interpolation=cv2.INTER_CUBIC)
     image = image / 255.
