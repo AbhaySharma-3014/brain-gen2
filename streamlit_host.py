@@ -72,8 +72,6 @@ if uploaded_file is not None:
     #*********
     resized = cv2.resize(opencv_image,(224,224))
 
-    # From here onwards there is another model to predict
-    model1 = tf.keras.models.load_model('detection_model.hdf5')
     image=resized
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.GaussianBlur(gray, (5, 5), 0)
