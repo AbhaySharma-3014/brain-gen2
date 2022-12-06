@@ -68,7 +68,7 @@ if uploaded_file is not None:
     # crop new image out of the original image using the four extreme points (left, right, top, bottom)
     new_image = image[extTop[1]:extBot[1], extLeft[0]:extRight[0]]
 
-#     image = cv2.resize(new_image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
+    image224 = cv2.resize(new_image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
     image = cv2.resize(new_image, dsize=(64, 64), interpolation=cv2.INTER_CUBIC)
     image = image / 255.
 
@@ -86,7 +86,7 @@ if uploaded_file is not None:
 
 
 # ****************************************************Display**************************************************************#   
-    st.image(image, channels="RGB")
+    st.image(image224, channels="RGB")
 # *************************************************************************************************************************#
     
 
@@ -111,7 +111,7 @@ if uploaded_file is not None:
         else:
             
             #prediction resulted from classification_model
-            prediction = classification_model.predict(test_image).argmax()
+            prediction = classification_model.predict(new_image).argmax()
 
             #category resulted from classification_model            
             class_dict = {0: "glioma_tumor", 1: "meningioma_tumor", 2: "pituitary_tumor"}
