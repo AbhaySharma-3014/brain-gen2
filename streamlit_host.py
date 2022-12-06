@@ -5,6 +5,8 @@ import tensorflow as tf
 from tensorflow.keras.preprocessing import image
 from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2,preprocess_input as mobilenet_v2_preprocess_input
 import imutils
+import numpy as np
+from tensorflow.keras.preprocessing import image
 
 
 st.title("Brain Tumor Detection")
@@ -71,8 +73,6 @@ if uploaded_file is not None:
 
     image = image.reshape((1, 240, 240, 3))
     
-    import numpy as np
-    from tensorflow.keras.preprocessing import image
     test_image = image
     test_image = image.img_to_array(test_image)
     test_image=test_image/255
