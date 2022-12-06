@@ -71,7 +71,7 @@ if uploaded_file is not None:
     image = cv2.resize(new_image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
     image = image / 255.
 
-    image = image.reshape((1, 240, 240, 3))
+#     image = image.reshape((1, 240, 240, 3))
     
     test_image = image
 #     test_image = image.img_to_array(test_image)
