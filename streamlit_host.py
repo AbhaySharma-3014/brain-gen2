@@ -69,10 +69,10 @@ if uploaded_file is not None:
     new_image = image[extTop[1]:extBot[1], extLeft[0]:extRight[0]]
 
 #     image = cv2.resize(new_image, dsize=(240, 240), interpolation=cv2.INTER_CUBIC)
+    image = cv2.resize(new_image, dsize=(64, 64), interpolation=cv2.INTER_CUBIC)
     image = image / 255.
 
 #     image = image.reshape((1, 240, 240, 3))
-    image = image.reshape((0, 64, 64, 3))
     
     test_image = image
 #     test_image = image.img_to_array(test_image)
