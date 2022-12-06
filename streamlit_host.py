@@ -72,6 +72,7 @@ if uploaded_file is not None:
     image = image / 255.
 
 #     image = image.reshape((1, 240, 240, 3))
+    image = image.reshape((0, 64, 64, 3))
     
     test_image = image
 #     test_image = image.img_to_array(test_image)
