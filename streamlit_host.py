@@ -70,6 +70,14 @@ if uploaded_file is not None:
     image = image / 255.
 
     image = image.reshape((1, 240, 240, 3))
+    
+    import numpy as np
+    from tensorflow.keras.preprocessing import image
+    test_image = image
+    test_image = image.img_to_array(test_image)
+    test_image=test_image/255
+    test_image = np.expand_dims(test_image, axis = 0)
+
 # *************************************************************************************************************************#
     
 
@@ -95,14 +103,14 @@ if uploaded_file is not None:
 # *****************************************************Prediction***********************************************************#    
     if Genrate_pred:       
         
-        res = prediction_model.predict(image)
+        res = prediction_model.predict(test_image)
         
         if(res < 0):
             st.title("No Tumor is Present")
         else:
             
             #prediction resulted from classification_model
-            prediction = classification_model.predict(uploaded_file).argmax()
+            prediction = classification_model.predict(test_image).argmax()
 
             #category resulted from classification_model            
             class_dict = {0: "glioma_tumor", 1: "meningioma_tumor", 2: "pituitary_tumor"}
