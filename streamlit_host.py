@@ -106,7 +106,7 @@ if uploaded_file is not None:
         
         res = prediction_model.predict(test_image)
         
-        if(res < 0):
+        if(res > 0):
             st.title("No Tumor is Present")
         else:
             
